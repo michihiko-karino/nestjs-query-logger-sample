@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { getMetadataArgsStorage } from 'typeorm';
 import { LoggerModule } from './logger/logger.module';
+import { QueryLogger } from './logger/queryLogger';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { LoggerModule } from './logger/logger.module';
       entities: getMetadataArgsStorage().tables.map(tbl => tbl.target),
       synchronize: false,
       keepConnectionAlive: true,
-      logging: true,
+      logger: QueryLogger.init(),
     }),
     LoggerModule,
   ],
