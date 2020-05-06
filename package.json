@@ -18,7 +18,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "dev": "env TZ='Asia/Tokyo' node dist/dev/server",
+    "webpack": "webpack --config webpack.config.js"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",
@@ -36,6 +38,7 @@
     "@types/jest": "25.1.4",
     "@types/node": "^13.9.1",
     "@types/supertest": "^2.0.8",
+    "@types/webpack-env": "^1.15.2",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "eslint": "^6.8.0",
@@ -48,7 +51,10 @@
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "jest": {
     "moduleFileExtensions": [
