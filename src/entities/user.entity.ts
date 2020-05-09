@@ -15,6 +15,16 @@ export class User {
   email: string;
 
   @ManyToMany(type => Skill)
-  @JoinTable()
+  @JoinTable({
+    name: 'users_skills',
+    joinColumn: {
+      name: 'user_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'skill_code',
+      referencedColumnName: 'code',
+    },
+  })
   skills: Skill[];
 }
