@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Skill } from './skill.master';
 
 @Entity({
   name: 'users',
@@ -12,4 +13,8 @@ export class User {
 
   @Column({ length: 32 })
   email: string;
+
+  @ManyToMany(type => Skill)
+  @JoinTable()
+  skills: Skill[];
 }
